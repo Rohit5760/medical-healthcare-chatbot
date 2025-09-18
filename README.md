@@ -19,7 +19,7 @@ Built with **Qwen-7B**, **IndicTrans2**, and **FAISS**, it enables healthcare in
 - **FAISS** for similarity search  
 - **Hugging Face Transformers** (Qwen-7B)  
 - **IndicTrans2** for translation  
-- **Flask / Gradio** for chatbot interface  
+- **Gradio** for chatbot interface  
 
 ---
 
