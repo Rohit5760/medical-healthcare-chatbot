@@ -1,5 +1,6 @@
 # 🩺 Medical Healthcare Chatbot
 🚧 *This project is currently under active development.*
+
 A multilingual AI-powered medical chatbot that provides information on diseases, symptoms, causes, precautions, and treatments.  
 Built with **Qwen-7B**, **IndicTrans2**, and **FAISS**, it enables healthcare insights across multiple Indian languages.
 
