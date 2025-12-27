@@ -1,59 +1,159 @@
-# 🩺 Medical Healthcare Chatbot
-🚧 *This project is currently under active development.*
+# QwenVeda 🧠🩺  
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Offline](https://img.shields.io/badge/Offline-Yes-success)
 
-A multilingual AI-powered medical chatbot that provides information on diseases, symptoms, causes, precautions, and treatments.  
-Built with **Qwen-7B**, **IndicTrans2**, and **FAISS**, it enables healthcare insights across multiple Indian languages.
+**Offline Multilingual Medical Information Assistant (CPU-only)**
 
----
+QwenVeda is a fully offline desktop medical information chatbot designed to provide **structured, reliable, and reference-backed health information** without relying on cloud APIs or internet connectivity.
 
-## ✨ Features
-- 🌐 **Multilingual Support**: Handles English and Indian regional languages.  
-- 🔍 **Context-Aware Retrieval**: Uses FAISS for fast and accurate disease information search.  
-- 🤖 **Generative Responses**: Leverages Qwen-7B to provide natural, human-like answers.  
-- 📊 **Custom Dataset**: Curated disease dataset with symptoms, causes, treatments, and severity levels.  
-- 🧠 **Translation Pipeline**: Bidirectional translation with IndicTrans2 for smooth user interaction.  
+The system is built with a **retrieval-augmented generation (RAG)** pipeline using FAISS, MiniLM-based reranking, and Qwen medical language models — optimized to run entirely on **CPU**.
+
+> ⚠️ QwenVeda is **not a diagnostic tool**. It is intended for educational and informational purposes only.
 
 ---
 
-## 🛠 Tech Stack
-- **Python**  
-- **FAISS** for similarity search  
-- **Hugging Face Transformers** (Qwen-7B)  
-- **IndicTrans2** for translation  
-- **Gradio** for chatbot interface  
+## 🔍 Key Features
+
+- ✅ **Fully Offline** (no internet required)
+- ✅ **CPU-only inference** (no CUDA / GPU required)
+- 🌍 **Multilingual support**
+  - English
+  - Indian regional languages (via M2M100)
+- 🧠 **RAG-based architecture**
+  - FAISS vector search
+  - Cross-encoder reranking
+- 📋 **Structured medical responses**
+  - Introduction
+  - Causes
+  - Symptoms
+  - Precautions
+  - References
+  - Safety disclaimer
+- 🔐 **Privacy-first**
+  - No data collection
+  - No external API calls
 
 ---
 
-## 🔄 How It Works (Pipeline)
-1. Detects the user’s query language.  
-2. Translates query into English using **IndicTrans2**.  
-3. Retrieves top results from the **FAISS vector store** built on the disease dataset.  
-4. Generates a response using **Qwen-7B** with the retrieved context.  
-5. Translates the final answer back into the user’s language (if needed).  
+## 🏗️ System Architecture
+
+**Pipeline overview:**
+
+1. User query received via desktop UI
+2. Language detection & translation (M2M100)
+3. Intent classification (MiniLM)
+4. FAISS vector retrieval
+5. Cross-encoder reranking
+6. Qwen medical LLM generates structured response
+7. Output translated back to user language
+8. Response displayed in UI
 
 ---
 
-## 📖 Dataset References
-- Mendeley Dataset – Foundational medical data for model training and validation.  
-  🔗 [Mendeley Dataset](https://data.mendeley.com/datasets/2cxccsxydc/1)  
+## 📦 Models Used
 
-- Qwen Model – Advanced multilingual model for natural language understanding and generation.  
-  🔗 [Qwen-7B](https://huggingface.co/Qwen/Qwen-7B)  
+- **Qwen Medical LLM** (quantized, CPU-friendly)
+- **MiniLM (all-MiniLM-L6-v2)** — embeddings & intent detection
+- **MiniLM Cross-Encoder** — reranking
+- **M2M100 (418M)** — multilingual translation
+- **FAISS** — vector similarity search
 
-- IndicTrans2 – Transformer-based translation system supporting nuanced communication across Indian regional languages.  
-  🔗 [IndicTrans2 EN→Indic](https://huggingface.co/ai4bharat/indictrans2-en-indic-200M) | [IndicTrans2 Indic→EN](https://huggingface.co/ai4bharat/indictrans2-indic-en-200M)  
+Due to size constraints, model files are not included in this repository.
 
-- Twilio Sandbox – Enabling seamless integration with WhatsApp for broad user accessibility.  
-  🔗 [Twilio Sandbox](https://www.twilio.com/docs/whatsapp/sandbox)  
+The Windows installer (linked below) contains all required models and dependencies.
+---
 
-- WHO & CDC Guidelines – Ensuring medical accuracy and alignment with global public health.  
-  🔗 [WHO Fact Sheets](https://www.who.int/news-room/fact-sheets)  
+## 💻 Platform Support
 
+| Platform | Supported |
+|--------|----------|
+| Windows 10 / 11 (64-bit) | ✅ |
+| macOS | ❌ |
+| Linux | ❌ |
+
+> Reason: Offline CPU inference relies on Windows-native `llama-cpp` binaries.
 
 ---
 
-## ⚠️ Disclaimer
-This chatbot is for **educational and informational purposes only**.  
-It is **not a substitute for professional medical advice, diagnosis, or treatment**.  
-Always seek guidance from a qualified healthcare provider for medical concerns.
+## ⬇️ Download (Windows)
 
+👉 **[Download QwenVeda Installer – Windows (Offline)](https://drive.google.com/file/d/1BeAZQCot000VWx30zOo544JVM_Es50pI/view?usp=sharing)**
+
+### Installer Notes
+- No Python installation required
+- No C++ build tools required
+- No environment setup needed
+- Just download → install → run
+
+---
+## 📁 Project Structure
+
+```text
+QwenVeda/
+├─ main.py
+├─ ui_chat.py
+├─ pipeline.py
+├─ translation.py
+├─ faiss_search.py
+├─ load_models.py
+├─ qwen_inference.py
+├─ requirements.txt
+├─ README.md
+├─ LICENSE
+└─ .gitignore
+```
+
+---
+
+## 🚀 How to Run (Installed Version)
+
+1. Install the application using the installer
+2. Launch **QwenVeda** from:
+   - Desktop shortcut **or**
+   - Start Menu
+3. Wait for models to load
+4. Enter a medical query
+
+---
+
+## 🧪 Example Queries
+
+- “What are the symptoms and causes of dengue?”
+- “Diabetes precautions in elderly patients”
+- “Explain asthma in simple terms”
+- “Heart attack warning signs”
+
+---
+
+## ⚠️ Medical Disclaimer
+
+QwenVeda does **not** provide medical diagnoses, prescriptions, or treatment advice.
+
+Always consult a qualified medical professional for diagnosis or treatment decisions.
+
+---
+
+## 🛠️ Development Setup (For Developers)
+
+> ⚠️ This section is for contributors and advanced users only.
+
+```bash
+python -m venv vedaenv
+vedaenv\Scripts\activate
+pip install -r requirements.txt
+python app/main.py
+```
+
+---
+
+## 👨‍💻 Author
+
+- Rohit Anand Bangar  
+- Shivanurag Yayavaram  
+- Samriddhi Gupta  
+- Rishabh Khuswaha  
+- Abhay Gour  
+- Shan Rehman
+
+---
