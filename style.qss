@@ -1,0 +1,121 @@
+/* ============================================================
+   GLOBAL DARK THEME FOR QWENVEDA
+   ============================================================ */
+
+QWidget {
+    background-color: #0d0d0d;
+    color: #f0f0f0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Remove focus outlines */
+*:focus {
+    outline: none;
+}
+
+/* ============================================================
+   LABELS
+   ============================================================ */
+QLabel {
+    color: #e6e6e6;
+}
+
+/* Title/Text at top-left */
+#TitleLabel {
+    color: #4ca0ff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Calligraphy banner text */
+#BannerLabel {
+    color: #1e75d9;
+    font-size: 38px;
+    font-family: "Georgia";
+}
+
+
+/* ============================================================
+   CHAT AREA
+   ============================================================ */
+QTextEdit {
+    background-color: #111111;
+    border: 1px solid #333;
+    color: #e6e6e6;
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Scrollbar styling */
+QScrollBar:vertical {
+    background: #1a1a1a;
+    width: 10px;
+    margin: 2px 0 2px 0;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #444;
+    min-height: 20px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #666;
+}
+
+QScrollBar::sub-line,
+QScrollBar::add-line {
+    height: 0;
+}
+
+
+/* ============================================================
+   INPUT TEXT BOX
+   ============================================================ */
+QLineEdit {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+QLineEdit:focus {
+    border: 1px solid #4ca0ff;
+}
+
+
+/* ============================================================
+   SEND BUTTON
+   ============================================================ */
+QPushButton {
+    background-color: #1e75d9;
+    border-radius: 6px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 15px;
+}
+
+QPushButton:hover {
+    background-color: #2d82ea;
+}
+
+QPushButton:pressed {
+    background-color: #165ba8;
+}
+
+QPushButton:disabled {
+    background-color: #555;
+    color: #aaa;
+}
+
+
+/* ============================================================
+   MAIN WINDOW
+   ============================================================ */
+QMainWindow {
+    background-color: #0d0d0d;
+}
