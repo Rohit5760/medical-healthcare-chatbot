@@ -79,6 +79,7 @@ The Windows installer (linked below) contains all required models and dependenci
 ## ⬇️ Download (Windows)
 
 👉 **[Demo Video](https://drive.google.com/file/d/1j5E2yjxf7F5fM-Kn_dZly9UQpAnylKko/view?usp=sharing)**
+
 👉 **[Download QwenVeda Installer – Windows (Offline)](https://drive.google.com/file/d/1BeAZQCot000VWx30zOo544JVM_Es50pI/view?usp=sharing)**
 
 ### Installer Notes
